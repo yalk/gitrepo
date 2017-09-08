@@ -1,0 +1,55 @@
+//experimental code; didn't work
+//code for passing unique buttonID as variable; thus viewing image from that panel in the post-onClick modal
+function activitySelect(buttonId){
+	var buttonId = document.getElementById(buttonId);
+	var imgsrc;
+
+	if (buttonId == "hob"){
+		imgsrc = document.getElementById("img1").src;
+		readSrc(imgsrc);
+	}
+
+	if (buttonId == "dri"){
+		imgsrc = document.getElementById("img2").src;
+		readSrc(imgsrc);
+	}
+
+	if (buttonId == "han"){
+		imgsrc = document.getElementById("img3").src;
+		readSrc(imgsrc);
+	}
+
+	if (buttonId == "boo"){
+		imgsrc = document.getElementById("img4").src;
+		readSrc(imgsrc);
+	}
+
+	if (buttonId == "sle"){
+		imgsrc = document.getElementById("img5").src;
+		readSrc(imgsrc);
+	}
+
+	function readSrc(input){
+		if (input){
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				$('#display').attr('src',e.target.result);
+			}
+			reader.readAsDataURL(input);		
+		}
+	}
+	$("#buttonId").change(function(){
+		readURL(this);
+	});
+}
+
+//experimental js code; didn't work
+<script type="text/javascript">
+	function previewImage(){
+		var ofReader = new FileReader();
+		ofReader.readAsDataURL(document.getElementById(img1));
+		ofReader.onload = function (ofREvent){
+			document.getElementById("display").src = ofREvent.target.result;
+		};
+	};
+</script>

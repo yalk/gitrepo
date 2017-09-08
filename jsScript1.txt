@@ -1,0 +1,62 @@
+function optList(month,date) {
+    var month = document.getElementById(month);
+    var date = document.getElementById(date);
+    date.innerHTML = "";
+    //var condition = document.myForm.selMon.value;
+
+    //for months with 31 days
+    if (month.value == "jan" || month.value == "mar" || month.value == "may" || month.value == "jul" || month.value == "aug" || month.value == "oct" || month.value == "dec"){  
+        var select = document.getElementById("selectNumber");
+        var options = [];
+        for(var i = 0; i<31; i++){
+            options[i] = i+1;
+        }
+    }
+    //for months with 30 days
+    else if (month.value == "apr" || month.value == "jun" || month.value == "sep" || month.value == "nov"){       
+        var select = document.getElementById("selectNumber");
+        var options = [];
+        for(var i = 0; i<30; i++){
+            options[i] = i+1;
+        }
+    }
+    //for feb
+    else if (month.value == "feb"){        
+        var select = document.getElementById("selectNumber");
+        var options = [];
+        for(var i = 0; i<29; i++){
+            options[i] = i+1;
+        }
+    }
+    //selecting date before month
+    else {
+        alert("Select a month first");
+        return false;
+    }
+    //code to make each element of options[] into a choice in dropdown menu
+    for(var i = 0; i < options.length; i++) {
+        var opt = options[i];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        select.appendChild(el);
+    }
+}
+
+//dropdownlist for choosing year of birth; 100 choices
+function optList2() {
+    var select = document.getElementById("selectNumber2");
+    var options = [];
+    var k = 1917;
+    for(var i = 0; i <= 99; i++){
+        options[i] = k;
+        k += 1;
+    }
+    for(var i = 99; i >= 0; i--) {
+        var opt = options[i];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        select.appendChild(el);
+    }
+}
